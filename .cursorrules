@@ -1,0 +1,24 @@
+# Regras de Desenvolvimento
+
+## Metodologia
+- Sempre desenvolver por etapas pequenas e incrementais
+- Após cada etapa, perguntar ao usuário se pode continuar antes de prosseguir
+- Não fazer múltiplas mudanças grandes de uma vez
+- Explicar o que foi feito em cada etapa
+
+## Comunicação
+- Sempre responder em português
+- Ser claro sobre o que está sendo implementado
+- Após completar uma etapa, resumir o que foi feito e perguntar: "Posso continuar com a próxima etapa?"
+
+## Código
+- Seguir boas práticas Python (PEP 8)
+- Adicionar comentários quando necessário
+- Manter código limpo e legível
+- Usar type hints quando apropriado
+
+## Estrutura do Projeto
+- Manter organização clara de pastas e arquivos
+- Separar responsabilidades (models, services, api, etc)
+- Documentar decisões arquiteturais importantes
+
