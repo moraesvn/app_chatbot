@@ -22,6 +22,9 @@ openai>=2.14.0
 # Vector Operations
 numpy>=1.26.0
 
+# Frontend
+streamlit>=1.28.0
+
 # Utilities
 python-dotenv==1.0.0
 python-multipart==0.0.6

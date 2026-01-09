@@ -1,0 +1,39 @@
+"""
+Interface Streamlit para testar o agente de atendimento marketplace.
+Totalmente isolada do backend - faz chamadas diretas ao agente.
+"""
+import sys
+import os
+from pathlib import Path
+
+# Adicionar o backend ao path para importar o agente
+# Garantir que o caminho seja absoluto
+project_root = Path(__file__).parent.parent
+backend_path = project_root / "backend"
+
+# Verificar se o caminho existe
+if not backend_path.exists():
+    raise ImportError(f"Caminho do backend não encontrado: {backend_path}")
+
+# Adicionar ao sys.path se ainda não estiver
+backend_path_str = str(backend_path.resolve())
+if backend_path_str not in sys.path:
+    sys.path.insert(0, backend_path_str)
+
+import streamlit as st
+from dotenv import load_dotenv
+
+# Carregar variáveis de ambiente
+env_path = project_root / ".env"
+load_dotenv(env_path)
+
+# Import do agente - agora o backend está no path
+try:
+    from app.agents.marketplace_agent import create_marketplace_agent
+except ImportError as e:
+    st.error(f"Erro ao importar agente: {e}")
+    st.error(f"Backend path: {backend_path_str}")
+    st.error(f"Python path: {sys.path[:3]}")
+    st.stop()
+
+# ... resto do código permanece igual ...
